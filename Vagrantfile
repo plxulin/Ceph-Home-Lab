@@ -1,14 +1,14 @@
 nodes = [
-  { :hostname => 'ansible', :ip => '192.168.0.40', :ip_pub => '192.168.1.40', :box => 'xenial64' },
-  { :hostname => 'osd1',  :ip => '192.168.0.51', :ip_pub => '192.168.1.51', :box => 'xenial64', :ram => 1024, :osd => 'yes' },
-  { :hostname => 'osd2',  :ip => '192.168.0.52', :ip_pub => '192.168.1.52', :box => 'xenial64' , :ram => 1024, :osd => 'yes' },
-  { :hostname => 'osd3',  :ip => '192.168.0.53', :ip_pub => '192.168.1.53', :box => 'xenial64' , :ram => 1024, :osd => 'yes' }
+  { :hostname => 'ansible', :ip => '192.168.0.40', :ip_pub => '192.168.1.40', :box => 'focal64' },
+  { :hostname => 'osd1',  :ip => '192.168.0.51', :ip_pub => '192.168.1.51', :box => 'focal64', :ram => 1024, :osd => 'yes' },
+  { :hostname => 'osd2',  :ip => '192.168.0.52', :ip_pub => '192.168.1.52', :box => 'focal64' , :ram => 1024, :osd => 'yes' },
+  { :hostname => 'osd3',  :ip => '192.168.0.53', :ip_pub => '192.168.1.53', :box => 'focal64' , :ram => 1024, :osd => 'yes' }
 ]
 
 Vagrant.configure("2") do |config|
   nodes.each do |node|
     config.vm.define node[:hostname] do |nodeconfig|
-      nodeconfig.vm.box = "bento/ubuntu-16.04"
+      nodeconfig.vm.box = "bento/ubuntu-20.04"
       nodeconfig.vm.hostname = node[:hostname]
       nodeconfig.vm.network :private_network, ip: node[:ip]
       nodeconfig.vm.network :private_network, ip: node[:ip_pub]
