@@ -188,9 +188,9 @@ git checkout stable-5.0
 sudo cp -a ./* /etc/ansible/
 
 sudo apt-get update -y
-sudo apt-get install python-pip -y
-sudo pip install --upgrade pip
-sudo pip install notario netaddr 
+sudo apt-get install python3-pip -y
+sudo pip3 install --upgrade pip
+sudo pip3 install notario netaddr 
 ```
 
 ## Setup ceph group_vars
